@@ -4,7 +4,7 @@
 #include <signal.h>
 #include <unistd.h>
 #include <math.h>
-//#include <wiringPi.h>
+#include <wiringPi.h>
 
 
 #define LED 7
@@ -48,7 +48,7 @@ int main(void){
         signal(SIGINT, f_crash);
         wiringPiSetup();
         pinMode(BUTTON, INPUT);
-        char buffer_p[1]=0;
+        char buffer_p[1]="0";
         int cont=0;
         puts("Pressione Ctrl+C para encerrar");
         while (1){
@@ -59,13 +59,13 @@ int main(void){
             } else {
                 cont++;
             }
-            buffer_p[0] = cont+"0";
+            buffer_p = cont+"0";
             if(write(fd[1], buffer_p, 1)<0){
                 puts("Erro na escrita do Pipe"); 
                 return 0;
             }
         }
-        buffer_p[0] = "\n";
+        buffer_p = "\n";
         write(fd[1], buffer_p, 1)<0;
     }
    
