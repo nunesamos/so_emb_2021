@@ -59,13 +59,13 @@ int main(void){
             } else {
                 cont++;
             }
-            buffer_p[] = cont+"0";
+            strcpy (buffer_p, cont+"0");
             if(write(fd[1], buffer_p, 1)<0){
                 puts("Erro na escrita do Pipe"); 
                 return 0;
             }
         }
-        buffer_p[] = "\n";
+        strcpy (buffer_p, "\n");
         write(fd[1], buffer_p, 1)<0;
     }
    
