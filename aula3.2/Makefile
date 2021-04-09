@@ -1,6 +1,6 @@
 all: Ex3.out
 Ex3.out: Ex3.o gpio_dev_mem.o
-	gcc Ex3.o gpio_dev_mem.o -o Ex3.out
+	gcc Ex3.o gpio_dev_mem.o -o Ex3.out -lm
 Ex3.o: Ex3.c
 	gcc -c Ex3.c
 

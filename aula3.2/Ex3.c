@@ -4,7 +4,12 @@
 #include <signal.h>
 #include <unistd.h>
 #include <math.h>
-#include <wiringPi.h>
+//#include <wiringPi.h>
+
+#define HIGH 1
+#define LOW 0
+#define INPUT 1
+#define OUTPUT 0
 
 
 #define LED 7
